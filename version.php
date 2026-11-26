@@ -23,9 +23,9 @@
  */
 defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'smarturlsource_courseurls';
-$plugin->version = 2026112700;
-$plugin->requires = 2026100500;
-$plugin->supported = [503, 503];
-$plugin->release = '1.0.0-m503';
-$plugin->dependencies = ['mod_smarturl' => 2026112602];
+$plugin->version = 2026112600;
+$plugin->requires = 2024100700;
+$plugin->supported = [405, 405];
+$plugin->release = '1.0.0-m405';
+$plugin->dependencies = ['mod_smarturl' => 2026112502];
 $plugin->maturity = MATURITY_STABLE;
