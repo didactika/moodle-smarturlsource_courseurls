@@ -223,8 +223,27 @@ jobs:
           sudo locale-gen en_AU.UTF-8
           echo "NVM_DIR=$HOME/.nvm" >> $GITHUB_ENV
 
+      - name: Prepare Smart URL with the extension installed
+        env:
+          MOODLE_BRANCH: ${{ matrix.moodle-branch }}
+        run: |
+          set -euo pipefail
+          parent_ref=main
+          initial_ref=feat/smarturl-resource-experience
+          if [ "$MOODLE_BRANCH" = MOODLE_405_STABLE ]; then
+            parent_ref=MOODLE_405_STABLE
+            initial_ref=feat/smarturl-resource-experience-405
+          fi
+          git clone --depth=1 --branch "$parent_ref" https://github.com/didactika/moodle-mod_smarturl.git smarturl
+          if [ ! -f smarturl/version.php ]; then
+            git -C smarturl fetch --depth=1 origin "$initial_ref"
+            git -C smarturl checkout --detach FETCH_HEAD
+          fi
+          mkdir -p smarturl/catalogue/source/courseurls
+          git -C plugin archive HEAD | tar -x -C smarturl/catalogue/source/courseurls
+
       - name: Install moodle-plugin-ci
-        run: moodle-plugin-ci install --plugin ./plugin --db-host=127.0.0.1
+        run: moodle-plugin-ci install --plugin ./smarturl --db-host=127.0.0.1
         env:
           DB: ${{ matrix.database }}
           MOODLE_BRANCH: ${{ matrix.moodle-branch }}
