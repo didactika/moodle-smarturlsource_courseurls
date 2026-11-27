@@ -24,7 +24,11 @@ namespace smarturlsource_courseurls\privacy;
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 final class provider implements \core_privacy\local\metadata\null_provider {
-    /** @return string Privacy explanation string. */
+    /**
+     * Explains how the extension handles user data.
+     *
+     * @return string Privacy explanation string key.
+     */
     public static function get_reason(): string {
         return 'privacy:metadata';
     }

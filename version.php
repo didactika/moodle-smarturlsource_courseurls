@@ -21,6 +21,7 @@
  * @copyright  2026 Didactika.org
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'smarturlsource_courseurls';
 $plugin->version = 2026112600;
