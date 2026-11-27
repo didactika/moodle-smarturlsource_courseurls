@@ -34,8 +34,10 @@ final class source implements source_contract {
      */
     public function resources(\context_course $context): array {
         global $DB;
-        $cms = array_filter(get_fast_modinfo($context->instanceid)->get_instances_of('url'),
-            static fn($cm) => $cm->uservisible && has_capability('mod/url:view', $cm->context));
+        $cms = array_filter(
+            get_fast_modinfo($context->instanceid)->get_instances_of('url'),
+            static fn($cm) => $cm->uservisible && has_capability('mod/url:view', $cm->context),
+        );
         if (!$cms) {
             return [];
         }

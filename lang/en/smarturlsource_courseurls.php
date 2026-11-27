@@ -21,5 +21,6 @@
  * @copyright  2026 Didactika.org
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 $string['pluginname'] = 'Smart URL course links';
 $string['privacy:metadata'] = 'The catalogue does not store personal data.';

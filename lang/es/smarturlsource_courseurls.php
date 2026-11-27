@@ -21,5 +21,6 @@
  * @copyright  2026 Didactika.org
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 $string['pluginname'] = 'Enlaces del curso para Enlace avanzado';
 $string['privacy:metadata'] = 'El catálogo no almacena datos personales.';
